@@ -36,14 +36,8 @@ public class Building {
     }
 
     public void printBuildingStatus() {
-        System.out.println("*** Building Status ***");
-        if (kitchen)
-            System.out.println("Building has " + getRoomsNumber() + " room(s) " + "and kitchen. Also with "
-                    + getBathroomNumber() + " bathroom(s).");
-        else {
-            System.out.println("Building has " + getRoomsNumber() + " room(s) " + "and no kitchen. Also with "
-                    + getBathroomNumber() + " bathroom(s).");
-        }
-        System.out.println("*** End of building status ***");
+        String k = isKitchen() ? "and kitchen. " : "and no kitchen. ";
+        System.out.println("Building has " + getRoomsNumber() + " room(s) " + k  + "Also with "
+                   + getBathroomNumber() + " bathroom(s).");
     }
 }
