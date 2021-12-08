@@ -36,8 +36,7 @@ public class Building {
     }
 
     public void printBuildingStatus() {
-        String k = kitchen ? "and kitchen. " : "and no kitchen. ";
-        System.out.println("Building has " + getRoomsNumber() + " room(s) " + k  + "Also with "
+        System.out.println("Building has " + getRoomsNumber() + " room(s) " + (kitchen ? "and kitchen. " : "and no kitchen. ")  + "Also with "
                    + getBathroomNumber() + " bathroom(s).");
     }
 }

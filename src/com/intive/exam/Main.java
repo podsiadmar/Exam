@@ -5,7 +5,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Restaurant restaurant = new Restaurant(6, 3, false);
+        Restaurant restaurant = new Restaurant(6, 3, true);
         restaurant.printBuldingStatus();
         System.out.println("");
         restaurant.addToMenu("Fries", "\"Chopped and friend potatoes\" ", 12.5);
