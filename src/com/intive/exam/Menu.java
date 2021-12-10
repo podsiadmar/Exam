@@ -2,33 +2,44 @@ package com.intive.exam;
 
 
 import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
 
 public class Menu {
 
+    private static HashMap<Integer, Object> menuItems = new HashMap<>();
 
-    protected static HashMap<String, String> menuItems = new HashMap<>();
-
-    public Map<String, String> getMenuItems() {
-        return menuItems;
+    public void addMenuItem(MenuItem menuItem) {
+        menuItems.put((menuItems.size() + 1), menuItem);
+        System.out.println(menuItem.getItemName() + " was added into menu on position: " + menuItems.size());
     }
 
-    public void setMenuItems(HashMap<String, String> menuItems) {
-        this.menuItems = menuItems;
+    public double getPriceOfMenuItem(String itemName) {
+        Object menuItem = null;
+        boolean navigator = false;
+        for (int i = 1; i <= menuItems.size(); i++) {
+            menuItem = menuItems.get(i);
+            if (itemName == ((MenuItem) menuItem).getItemName()) {
+                navigator = true;
+                break;
+            }
+        }
+        if (navigator) {
+            return ((MenuItem) menuItem).getItemPrice();
+        } else {
+            return 0;
+        }
     }
 
-    public void addDishToMenu(String dish, double price){
-        menuItems.put((menuItems.size()+1)+". "+dish, String.valueOf(price));
-        System.out.println(dish + " was added into menu on position: " + menuItems.size());
+    public void printMenu() {
+        System.out.println("*** Restaurant Menu ***");
+        for (int i = 1; i <= menuItems.size(); i++) {
+            Object menuItem = menuItems.get(i);
+            System.out.println(i + ". " + ((MenuItem) menuItem).getItemName() + "\"" + ((MenuItem) menuItem).getItemDescription()
+                    + ". \" with price: " + ((MenuItem) menuItem).getItemPrice() + " PLN");
+        }
+        System.out.println("*** End of restaurant menu ***");
     }
-
-    public String getDishPrice(String dish){
-        List<String> filtered = menuItems.entrySet().stream().filter(entry-> entry.getKey().contains(dish)).map(entry-> entry.getValue()).collect(Collectors.toList());
-        return filtered.get(0);
-    }
-
-
 
 }
+
+
+

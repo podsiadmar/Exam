@@ -5,38 +5,14 @@ public class Building {
     protected int bathroomNumber;
     protected boolean kitchen;
 
-    public Building(int roomsNumber, int bathroomNumber, boolean kitchen) {
+    public Building(final int roomsNumber, final int bathroomNumber, final boolean kitchen) {
         this.roomsNumber = roomsNumber;
         this.bathroomNumber = bathroomNumber;
-        this.kitchen = kitchen;
-    }
-
-    public int getRoomsNumber() {
-        return roomsNumber;
-    }
-
-    public void setRoomsNumber(int roomsNumber) {
-        this.roomsNumber = roomsNumber;
-    }
-
-    public int getBathroomNumber() {
-        return bathroomNumber;
-    }
-
-    public void setBathroomNumber(int bathroomNumber) {
-        this.bathroomNumber = bathroomNumber;
-    }
-
-    public boolean isKitchen() {
-        return kitchen;
-    }
-
-    public void setKitchen(boolean kitchen) {
         this.kitchen = kitchen;
     }
 
     public void printBuildingStatus() {
-        System.out.println("Building has " + getRoomsNumber() + " room(s) " + (kitchen ? "and kitchen. " : "and no kitchen. ")  + "Also with "
-                   + getBathroomNumber() + " bathroom(s).");
+        System.out.println("Building has " + roomsNumber + " room(s) " + (kitchen ? "and kitchen. " : "and no kitchen. ") + "Also with "
+                + bathroomNumber + " bathroom(s).");
     }
 }
